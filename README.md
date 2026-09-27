@@ -61,3 +61,7 @@ XDG_CONFIG_HOME=/tmp/ts-cfg dbus-run-session -- bash -c '
 ```
 
 The separate `XDG_CONFIG_HOME` keeps your real GNOME settings out of it.
+
+## License
+
+GPL-2.0-or-later, the usual choice for GNOME Shell extensions. See [LICENSE](LICENSE).
