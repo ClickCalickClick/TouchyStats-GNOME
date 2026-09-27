@@ -1,0 +1,150 @@
+/* TouchyStats — card chrome in TouchyWeather's visual language. The root
+   actor carries .ts-dark or .ts-light (from Main.getStyleVariant()). */
+
+/* ---- top bar -------------------------------------------------------------- */
+
+.ts-panel-box { spacing: 6px; }
+.ts-ind { spacing: 3px; }
+.ts-ind-glyph { icon-size: 14px; }
+.ts-ind-ring-glyph { icon-size: 11px; }
+.ts-ind-graph { margin: 0 1px; }
+.ts-ind-value { font-feature-settings: "tnum"; font-size: 10.5pt; text-align: right; }
+.ts-w-pct { min-width: 2.2em; }
+.ts-w-temp { min-width: 1.7em; }
+.ts-w-watts { min-width: 3.2em; }
+.ts-w-rates { min-width: 6.6em; }
+
+/* ---- popover shell -------------------------------------------------------- */
+
+.ts-menu { padding: 0; }
+.ts-root { width: 384px; spacing: 0; }
+.ts-scroll { padding: 0; }
+.ts-cards { padding: 10px 12px 12px; spacing: 10px; }
+.ts-divider { height: 1px; background-color: rgba(128, 128, 128, 0.25); }
+
+.ts-card { border-radius: 14px; padding: 8px 8px 12px; spacing: 10px; }
+.ts-dark .ts-card { background-color: rgba(255, 255, 255, 0.065); }
+.ts-light .ts-card { background-color: rgba(0, 0, 0, 0.05); }
+.ts-card-collapsed { padding-bottom: 10px; }
+
+.ts-card-header { spacing: 2px; }
+.ts-card-toggle { border-radius: 8px; padding: 2px 4px; }
+.ts-card-toggle:hover { background-color: rgba(128, 128, 128, 0.12); }
+.ts-card-toggle-box { spacing: 6px; }
+.ts-card-icon { icon-size: 13px; }
+.ts-card-title { font-size: 8.5pt; font-weight: 800; }
+.ts-card-headline { font-size: 10.5pt; font-weight: bold; font-feature-settings: "tnum"; }
+.ts-card-body { spacing: 10px; padding: 0 4px; }
+
+.ts-pin, .ts-chevron-button { border-radius: 7px; padding: 4px; }
+.ts-pin:hover, .ts-chevron-button:hover { background-color: rgba(128, 128, 128, 0.18); }
+.ts-pin-icon { icon-size: 12px; }
+.ts-pin { opacity: 0.45; }
+.ts-pin:hover, .ts-pin:checked { opacity: 1; }
+.ts-chevron { icon-size: 12px; }
+
+/* ---- type ----------------------------------------------------------------- */
+
+.ts-caption { font-size: 9pt; }
+.ts-caption2 { font-size: 8pt; }
+.ts-subheadline { font-size: 10.5pt; font-weight: bold; }
+.ts-big-number { font-size: 26pt; font-weight: 800; font-feature-settings: "tnum"; }
+.ts-small-icon { icon-size: 14px; }
+
+.ts-stat-row { spacing: 8px; }
+.ts-stat { spacing: 1px; }
+.ts-stat-caption { font-size: 7.5pt; font-weight: bold; }
+.ts-stat-value { font-size: 10pt; font-weight: bold; font-feature-settings: "tnum"; }
+
+.ts-meter { spacing: 5px; }
+.ts-meter-name { font-size: 9pt; font-weight: bold; }
+.ts-meter-value { font-size: 9pt; font-feature-settings: "tnum"; }
+
+/* ---- overview ------------------------------------------------------------- */
+
+.ts-hero { spacing: 12px; padding: 12px 10px 10px; }
+.ts-dark .ts-hero { background-gradient-direction: vertical; background-gradient-start: rgba(255, 255, 255, 0.09); background-gradient-end: rgba(255, 255, 255, 0.04); }
+.ts-light .ts-hero { background-gradient-direction: vertical; background-gradient-start: rgba(0, 0, 0, 0.07); background-gradient-end: rgba(0, 0, 0, 0.03); }
+.ts-hero-top { spacing: 8px; padding: 0 2px; }
+.ts-hero-host { font-size: 11pt; font-weight: 800; }
+.ts-hero-rings { spacing: 2px; }
+.ts-hero-button { border-radius: 12px; padding: 6px 0 4px; }
+.ts-hero-button:hover { background-color: rgba(128, 128, 128, 0.12); }
+.ts-hero-button:active { background-color: rgba(128, 128, 128, 0.22); }
+.ts-hero-tile { spacing: 1px; }
+.ts-hero-value { font-size: 12.5pt; font-weight: 800; font-feature-settings: "tnum"; }
+.ts-hero-name { font-size: 9pt; font-weight: bold; margin-top: 5px; }
+.ts-hero-sub { font-size: 8pt; font-feature-settings: "tnum"; }
+
+/* ---- segmented control ---------------------------------------------------- */
+
+.ts-seg { border-radius: 9px; padding: 2px; spacing: 2px; }
+.ts-dark .ts-seg { background-color: rgba(255, 255, 255, 0.07); }
+.ts-light .ts-seg { background-color: rgba(0, 0, 0, 0.06); }
+.ts-seg-button { border-radius: 7px; padding: 4px 9px; }
+.ts-seg-button:hover { background-color: rgba(128, 128, 128, 0.16); }
+.ts-dark .ts-seg-button:checked { background-color: rgba(255, 255, 255, 0.16); }
+.ts-light .ts-seg-button:checked { background-color: #ffffff; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); }
+.ts-seg-content { spacing: 5px; }
+.ts-seg-label { font-size: 8.5pt; font-weight: bold; }
+.ts-seg-icon { icon-size: 13px; }
+.ts-seg-small .ts-seg-button { padding: 2px 8px; }
+.ts-seg-small .ts-seg-label { font-size: 8pt; }
+.ts-seg-wide .ts-seg-button { padding: 6px 6px; }
+
+/* ---- graphs & bars -------------------------------------------------------- */
+
+.ts-graph { height: 60px; }
+.ts-graph-scale { font-size: 7.5pt; font-feature-settings: "tnum"; margin-top: 2px; }
+.ts-graph-tip { font-size: 8pt; font-weight: bold; font-feature-settings: "tnum"; border-radius: 6px; padding: 2px 6px; }
+.ts-dark .ts-graph-tip { background-color: rgba(30, 30, 34, 0.92); color: #ffffff; }
+.ts-light .ts-graph-tip { background-color: rgba(255, 255, 255, 0.95); color: #1e1e22; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); }
+
+.ts-legend { spacing: 6px; }
+.ts-legend-item { spacing: 6px; }
+.ts-dot { width: 8px; height: 8px; border-radius: 4px; margin-top: 1px; }
+.ts-dark .ts-dot-track { background-color: rgba(255, 255, 255, 0.2); }
+.ts-light .ts-dot-track { background-color: rgba(0, 0, 0, 0.15); }
+
+/* ---- battery -------------------------------------------------------------- */
+
+.ts-battery-top { spacing: 12px; }
+.ts-profile-box { spacing: 6px; }
+.ts-periph { spacing: 4px; }
+.ts-periph-row { spacing: 8px; }
+
+/* ---- network & storage ---------------------------------------------------- */
+
+.ts-rate-row { spacing: 8px; }
+.ts-rate-arrow { font-size: 14pt; font-weight: 800; margin-right: 3px; }
+.ts-rate-value { font-size: 14pt; font-weight: 800; font-feature-settings: "tnum"; }
+.ts-mounts { spacing: 10px; }
+
+/* ---- sensors -------------------------------------------------------------- */
+
+.ts-sensor-rows { spacing: 8px; }
+.ts-sensor-row { spacing: 10px; }
+.ts-sensor-name { font-size: 9.5pt; width: 78px; }
+.ts-sensor-value { font-size: 9.5pt; font-weight: bold; font-feature-settings: "tnum"; min-width: 42px; text-align: right; }
+
+/* ---- processes ------------------------------------------------------------ */
+
+.ts-proc-bar { spacing: 8px; }
+.ts-proc-list { spacing: 2px; }
+.ts-proc-row { border-radius: 8px; padding: 5px 6px 4px; }
+.ts-proc-row:hover { background-color: rgba(128, 128, 128, 0.14); }
+.ts-proc-row-content { spacing: 8px; }
+.ts-proc-stack { spacing: 4px; }
+.ts-proc-icon { icon-size: 18px; }
+.ts-proc-name { font-size: 9.5pt; font-weight: bold; }
+.ts-proc-row .ts-caption2 { margin-left: 2px; }
+.ts-proc-value { font-size: 9.5pt; font-feature-settings: "tnum"; min-width: 52px; text-align: right; }
+
+/* ---- footer --------------------------------------------------------------- */
+
+.ts-footer { padding: 8px 12px; spacing: 6px; }
+.ts-footer-button { padding: 6px 8px; border-radius: 8px; }
+.ts-footer-button:hover, .ts-footer-button:focus { background-color: rgba(128, 128, 128, 0.2); }
+.ts-footer-button:active { background-color: rgba(128, 128, 128, 0.35); }
+.ts-footer-content { spacing: 6px; }
+.ts-footer-icon { icon-size: 16px; }

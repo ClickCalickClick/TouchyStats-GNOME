@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="touchystats">
+  <enum id="org.gnome.shell.extensions.touchystats.PanelStyle">
+    <value nick="rings" value="0"/>
+    <value nick="graphs" value="1"/>
+    <value nick="text" value="2"/>
+  </enum>
+  <enum id="org.gnome.shell.extensions.touchystats.Position">
+    <value nick="left" value="0"/>
+    <value nick="center" value="1"/>
+    <value nick="right" value="2"/>
+  </enum>
+  <enum id="org.gnome.shell.extensions.touchystats.TempUnit">
+    <value nick="celsius" value="0"/>
+    <value nick="fahrenheit" value="1"/>
+  </enum>
+  <enum id="org.gnome.shell.extensions.touchystats.ProcessSort">
+    <value nick="cpu" value="0"/>
+    <value nick="memory" value="1"/>
+  </enum>
+
+  <schema id="org.gnome.shell.extensions.touchystats" path="/org/gnome/shell/extensions/touchystats/">
+    <key name="panel-metrics" type="as">
+      <default>['cpu', 'gpu', 'memory', 'battery']</default>
+      <summary>Metrics shown in the top bar, in order</summary>
+      <description>Any of: cpu, gpu, memory, swap, temp, power, battery, network, disk.</description>
+    </key>
+    <key name="panel-style" enum="org.gnome.shell.extensions.touchystats.PanelStyle">
+      <default>'rings'</default>
+      <summary>How each top-bar metric is drawn</summary>
+    </key>
+    <key name="panel-show-values" type="b">
+      <default>true</default>
+      <summary>Show numbers next to the rings or graphs</summary>
+    </key>
+    <key name="panel-position" enum="org.gnome.shell.extensions.touchystats.Position">
+      <default>'right'</default>
+      <summary>Which part of the top bar holds the indicator</summary>
+    </key>
+    <key name="update-interval" type="u">
+      <range min="1" max="10"/>
+      <default>2</default>
+      <summary>Seconds between samples on AC power</summary>
+    </key>
+    <key name="battery-update-interval" type="u">
+      <range min="1" max="30"/>
+      <default>5</default>
+      <summary>Seconds between samples on battery</summary>
+    </key>
+    <key name="graph-range" type="u">
+      <range min="60" max="600"/>
+      <default>60</default>
+      <summary>Seconds of history the popover graphs show</summary>
+    </key>
+    <key name="temperature-unit" enum="org.gnome.shell.extensions.touchystats.TempUnit">
+      <default>'celsius'</default>
+      <summary>Temperature unit</summary>
+    </key>
+    <key name="process-sort" enum="org.gnome.shell.extensions.touchystats.ProcessSort">
+      <default>'cpu'</default>
+      <summary>How the top-apps card is sorted</summary>
+    </key>
+    <key name="collapsed-cards" type="as">
+      <default>[]</default>
+      <summary>Cards the user collapsed</summary>
+    </key>
+    <key name="hidden-cards" type="as">
+      <default>[]</default>
+      <summary>Cards hidden from the popover</summary>
+    </key>
+  </schema>
+</schemalist>
