@@ -22,7 +22,7 @@ Pick any of CPU, GPU, memory, swap, CPU temperature, power draw, battery, networ
 - **Processor:** load graph, clock speed, temperature, load average, and a bar for every thread.
 - **Graphics:** load graph, clock, temperature, package power, and VRAM / shared memory (AMD only).
 - **Memory:** in use / cached / free, a RAM and swap graph, and how much zram is saving.
-- **Battery & Power:** charge, time left, a power-draw graph, health, cycles, and a Saver / Balanced / Performance switch.
+- **Battery & Power:** charge, time left, a power-draw graph, health, cycles, the batteries of Bluetooth keyboards, mice and pens, and a Saver / Balanced / Performance switch.
 - **Network and Storage:** up/down and read/write graphs, Wi-Fi signal, and free space per drive.
 - **Temperatures:** every sensor worth naming (CPU, GPU, SSD, Wi-Fi, chassis).
 - **Top apps:** the busiest apps by CPU or memory, with helper processes grouped under their app. Click one to switch to it.
@@ -36,6 +36,7 @@ I didn't want a monitor that costs more than it tells you, so I measured it:
 - A background update takes about 0.5 ms. It runs every 2 s on AC and every 5 s on battery (both adjustable).
 - Sensors that are slow to read (ACPI thermal zones, the NVMe temperature, the AC adapter) are only read while the popover is open, as are the process list and drive usage.
 - Sampling pauses completely while the screen is locked or blanked. It never keeps the machine awake or blocks suspend.
+- Keyboard, mouse and pen batteries come from UPower rather than sysfs. I learned this one the hard way: reading a Bluetooth keyboard's battery file makes the kernel ask the keyboard and wait for it, and a dozing keyboard can take two seconds to answer. Since extensions run on the Shell's main thread, the whole desktop froze while it waited.
 - The top bar is only redrawn when a number or ring actually changes. Mini graphs are the exception, since they scroll every update.
 
 ## Install
@@ -61,6 +62,16 @@ XDG_CONFIG_HOME=/tmp/ts-cfg dbus-run-session -- bash -c '
 ```
 
 The separate `XDG_CONFIG_HOME` keeps your real GNOME settings out of it.
+
+### If the desktop stutters
+
+`tools/lagprobe.py` is the read-only probe I wrote to track down that Bluetooth freeze. It pings the Shell over D-Bus every 25 ms, records what the Shell's main thread is doing whenever a reply is late (running, or asleep in the kernel and on what), and lines that up with memory, disk and CPU pressure, the GPU clock, the busiest processes and the journal:
+
+```bash
+python3 tools/lagprobe.py
+```
+
+Use the desktop as usual, press Enter in the terminal whenever something feels laggy, and press Ctrl+C for the report. It isn't specific to TouchyStats, so it works for hunting down any extension that blocks the Shell.
 
 ## License
 
