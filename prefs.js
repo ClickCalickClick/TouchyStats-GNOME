@@ -93,7 +93,8 @@ export default class TouchyStatsPrefs extends ExtensionPreferences {
 
         const cards = new Adw.PreferencesGroup({title: 'Cards', description: 'Cards for hardware this machine lacks are hidden automatically.'});
         for (const [id, title] of CARDS) {
-            const row = new Adw.SwitchRow({title});
+            // Plain text: Adw rows parse titles as markup, and "Battery & Power" isn't valid markup.
+            const row = new Adw.SwitchRow({title, use_markup: false});
             row.active = !settings.get_strv('hidden-cards').includes(id);
             row.connect('notify::active', () => {
                 const cur = settings.get_strv('hidden-cards').filter(x => x !== id);

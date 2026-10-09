@@ -2,7 +2,7 @@
 
 A system monitor for the GNOME top bar, and a companion to TouchyWeather. It puts CPU, GPU, memory and battery in the top bar as small rings, and clicking it opens a stack of cards with live graphs and the details behind each number.
 
-I built it for my Minisforum V3 (Ryzen 7 8840U / Radeon 780M, CachyOS, GNOME 50), so that's where it's tested most. It should work on any recent GNOME with an AMD or Intel CPU. The GPU card needs AMD graphics.
+I built it for my Minisforum V3 (Ryzen 7 8840U / Radeon 780M, CachyOS, GNOME 51), so that's where it's tested most. It should work on any recent GNOME with an AMD or Intel CPU. The GPU card needs AMD graphics.
 
 ![The popover, scrolled top to bottom](docs/popover.png)
 

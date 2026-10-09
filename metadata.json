@@ -2,7 +2,7 @@
   "uuid": "touchystats@clickcalickclick.github.io",
   "name": "TouchyStats",
   "description": "A system monitor for the top bar: CPU, GPU, memory, battery, power, temperatures, network and disk as rings, mini graphs or plain numbers. Click it for an interactive card stack with live graphs you can scrub, per-thread load, top apps, storage, sensors and a power-mode switch. Companion to TouchyWeather.",
-  "shell-version": ["48", "49", "50"],
+  "shell-version": ["48", "49", "50", "51"],
   "version-name": "1.0.0",
   "url": "https://github.com/ClickCalickClick/TouchyStats-GNOME",
   "settings-schema": "org.gnome.shell.extensions.touchystats"
